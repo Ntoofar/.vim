@@ -34,6 +34,9 @@
 
  call neobundle#end()
 
+ " config mapleader key
+ let mapleader="\<Space>"
+
  " config vim-color-solarized
  syntax enable
  syntax on
@@ -80,7 +83,18 @@
  let g:airline#extensions#tabline#buffer_nr_show = 1
  
  " set number
- set number
+ set relativenumber
+ function! NumberToggle()
+   if(&relativenumber == 1)
+     set norelativenumber
+     set number
+   else
+     set nonumber
+     set relativenumber
+   endif
+ endfunc
+
+ nnoremap <leader>nt :call NumberToggle()<cr>
 
  au BufNewFile,BufRead *.py
  \ set tabstop=4
