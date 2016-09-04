@@ -1,0 +1,8 @@
+YouCompleteMe
+neobundle.vim
+nerdtree
+syntastic
+vim-airline
+vim-airline-themes
+vim-colors-solarized
+vim-fugitive
