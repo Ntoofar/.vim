@@ -66,6 +66,8 @@
 
  " config YouCompleteMe
  let g:ycm_global_ycm_extra_conf = '/Users/Ntoofar/.ycm_extra_conf.py'
+ autocmd InsertLeave * if pumvisible() == 0|pclose|endif 
+ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
  " config vimr-airline
  " set status line
@@ -97,22 +99,27 @@
  nnoremap <leader>nt :call NumberToggle()<cr>
 
  au BufNewFile,BufRead *.py
- \ set tabstop=4
- \ set softtabstop=4
- \ set shiftwidth=4
- \ set textwidth=79
- \ set expandtab
- \ set autoindent
+ \ set tabstop=4 |
+ \ set softtabstop=4 |
+ \ set shiftwidth=4 |
+ " \ set textwidth=79 |
+ \ set expandtab |
+ \ set autoindent |
  \ set fileformat=unix
 
  " config for different file type
  au BufNewFile,BufRead *.js, *.html, *.css
- \ set tabstop=2
- \ set softtabstop=2
+ \ set tabstop=2 |
+ \ set softtabstop=2 |
  \ set shiftwidth=2
 
  " find reduntant white space charater
+ highlight BadWhitespace ctermbg=red guibg=red
  au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+ " config for backspace work in insert mode
+ set backspace=2 " make backspace work like most other apps
+ set backspace=indent,eol,start
 
  " Required:
  filetype plugin indent on
