@@ -66,6 +66,7 @@
 
  " config YouCompleteMe
  let g:ycm_global_ycm_extra_conf = '/Users/Ntoofar/.ycm_extra_conf.py'
+ let g:ycm_python_binary_path = '/usr/local/bin/python3'
  autocmd InsertLeave * if pumvisible() == 0|pclose|endif 
  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
